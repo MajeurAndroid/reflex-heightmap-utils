@@ -345,7 +345,7 @@ public class MainFrame extends JFrame implements ActionListener {
                 json.put("customgreen", to6Hex(green));
                 json.put("customblue", to6Hex(blue));
                 json.put("customblack", to6Hex(black));
-                File jsonFile = new File(HeightmapUtilities.getWorkingDir(), "Heightmap Utilities.json");
+                File jsonFile = new File(HeightmapUtilities.getWorkingDir(), "config.json");
                 try (FileWriter file = new FileWriter(jsonFile)) {
                     file.write(json.toJSONString());
                 } catch (IOException e) {
@@ -377,7 +377,7 @@ public class MainFrame extends JFrame implements ActionListener {
             @Override
             protected JSONObject doInBackground() throws Exception {
                 JSONParser parser = new JSONParser();
-                File jsonFile = new File(HeightmapUtilities.getWorkingDir(), "Heightmap Utilities.json");
+                File jsonFile = new File(HeightmapUtilities.getWorkingDir(), "config.json");
                 try (Reader reader = new FileReader(jsonFile)) {
                     return (JSONObject) parser.parse(reader);
                 } catch (IOException | ParseException e) {
